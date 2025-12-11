@@ -5,5 +5,8 @@ module com.example.lol {
 
 
     opens com.example.lol to javafx.fxml;
+    opens com.example.lol.controller to javafx.fxml;
+    opens com.example.lol.model to javafx.fxml;
     exports com.example.lol;
+
 }
