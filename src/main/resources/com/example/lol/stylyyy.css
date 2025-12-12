@@ -2,11 +2,8 @@
     -fx-background-color: gray;
 }
 .text-field{
-    -fx-background-color: gray;
+    -fx-background-color: white;
 }
 .list-view{
     -fx-background-color: gray;
-}
-.button{
-    -fx-background-image: stažený soubor.jpg;
 }

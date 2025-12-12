@@ -37,7 +37,7 @@ public class KnihaController2 {
     private Label error;
     @FXML
     private TextField vyhledavani;
-
+    int rokVydani;
     @FXML
     public void handleVyberKnihu() {
         titulLabel.setText(knihaListView.getSelectionModel().getSelectedItem().getTitul());
@@ -52,7 +52,16 @@ public class KnihaController2 {
     public void handlePridejKnihu() {
         String titul = titulAdd.getText();
         String autor = autorAdd.getText();
-        int rokVydani = Integer.parseInt(rokAdd.getText());
+
+        try{
+        rokVydani = Integer.parseInt(rokAdd.getText());}
+        catch(Exception e){
+            error.setText("Chyba v roku!! prozatimně nastavena 0");
+            rokVydani = 0;
+        }
+
+
+
         knihaListView.getItems().add(new Kniha(titul, autor, rokVydani));
         autorAdd.clear();
         rokAdd.clear();
@@ -75,25 +84,20 @@ public class KnihaController2 {
 
     @FXML
     public void handleUpravaKnihu() {
-        boolean errorrr = false;
-        if (knihaListView.getSelectionModel().getSelectedItem() == null) {
-            System.err.println("Musí být něco vybráno");
-        } else {
-            try {
-                handleSmazKnihu();
-                handlePridejKnihu();
-            } catch (Exception e) {
-                error.setText("CHYBA V ROKU!!!!! Nastaveno 0 na rok");
-                errorrr = true;
+        if(knihaListView.getSelectionModel().getSelectedItem() == null) {
+            System.err.println("musíš něco vybrat!");
+        }
+        else{
+            handleSmazKnihu();
+            handlePridejKnihu();
+            for (Kniha k : knihy) {
+                if (k.getTitul().equals(knihaListView.getSelectionModel().getSelectedItem().getTitul())) {
+                    knihaListView.getSelectionModel().select(k);
+                    handleVyberKnihu();
+                }
             }
         }
-        if (errorrr = true) {
-            rokAdd.setText(String.valueOf(0));
-            handlePridejKnihu();
-        } else {
-            handleSmazKnihu();
-            error.setText("");
-        }
+
     }
 
     @FXML
