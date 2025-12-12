@@ -1,0 +1,12 @@
+.root{
+    -fx-background-color: gray;
+}
+.text-field{
+    -fx-background-color: gray;
+}
+.list-view{
+    -fx-background-color: gray;
+}
+.button{
+    -fx-background-image: stažený soubor.jpg;
+}

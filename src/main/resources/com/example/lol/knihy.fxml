@@ -4,12 +4,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lol.controller.KnihaController2">
    <left>
@@ -21,6 +21,8 @@
             <Label fx:id="titulLabel" onMouseClicked="#handleVyberKnihu" text="Label" />
             <Label fx:id="autorLabel" onMouseClicked="#handleVyberKnihu" text="Label" />
             <Label fx:id="rokLabel" onMouseClicked="#handleVyberKnihu" text="Label" />
+            <Label fx:id="error" text="Label" />
+            <ImageView fx:id="img" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </VBox>
    </center>
@@ -35,13 +37,18 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="titulAdd" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="autorAdd" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="rokAdd" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" onAction="#handlePridejKnihu" text="Button" GridPane.rowIndex="2" />
+            <Button mnemonicParsing="false" onAction="#handlePridejKnihu" text="Přidat" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#handleSmazKnihu" text="Smazat" GridPane.rowIndex="2" />
+            <Button mnemonicParsing="false" onAction="#handleUpravaKnihu" text="Upravit" GridPane.rowIndex="3" />
+            <Button mnemonicParsing="false" onAction="#handleNajdiKnihu" text="Najít" GridPane.rowIndex="4" />
+            <TextField fx:id="vyhledavani" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
       </GridPane>
    </bottom>
